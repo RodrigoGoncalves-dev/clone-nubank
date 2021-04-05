@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:nubank/components/bottom_navigator_buttons.dart';
 import 'package:nubank/components/card_content.dart';
 import 'package:nubank/components/header_home.dart';
 import 'package:nubank/screens/login.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  Home({this.name});
+  final String name;
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -17,11 +23,13 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 45,
+                height: height * 0.05,
               ),
               Padding(
                 padding: EdgeInsets.only(left: 12, right: 12),
-                child: HeaderHome(),
+                child: HeaderHome(
+                  name: widget.name,
+                ),
               ),
               SizedBox(
                 height: 30,
