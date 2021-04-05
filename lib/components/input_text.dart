@@ -3,10 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class InputText extends StatelessWidget {
   final String hintText;
+  final TextEditingController controller;
 
   const InputText({
     Key key,
     this.hintText,
+    this.controller,
   }) : super(key: key);
 
   @override
@@ -14,6 +16,7 @@ class InputText extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.fromLTRB(25, 10, 25, 10),
       child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: GoogleFonts.oxygen(
