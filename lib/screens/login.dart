@@ -15,6 +15,9 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+
+    final cpfEC = TextEditingController();
+    final passwordEC = TextEditingController();
     return Scaffold(
       backgroundColor: Color.fromRGBO(149, 1, 199, 1),
       body: SafeArea(
@@ -43,9 +46,11 @@ class _LoginState extends State<Login> {
                   ),
                   InputText(
                     hintText: 'CPF',
+                    controller: cpfEC,
                   ),
                   InputText(
                     hintText: 'Senha',
+                    controller: passwordEC,
                   ),
                   SizedBox(
                     height: 60,
@@ -53,7 +58,12 @@ class _LoginState extends State<Login> {
                   GestureDetector(
                     onTap: () {
                       Navigator.maybeOf(context).push(
-                          MaterialPageRoute(builder: (context) => Home()));
+                        MaterialPageRoute(
+                          builder: (context) => Home(
+                            name: cpfEC.text,
+                          ),
+                        ),
+                      );
                     },
                     child: ButtonWhite(
                       width: width,
