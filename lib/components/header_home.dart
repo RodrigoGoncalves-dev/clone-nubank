@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HeaderHome extends StatelessWidget {
+  final String name;
   const HeaderHome({
     Key key,
+    this.name,
   }) : super(key: key);
 
   @override
@@ -12,7 +14,7 @@ class HeaderHome extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          'Olá, Rodrigo',
+          'Olá, $name',
           style: GoogleFonts.oxygen(
             color: Colors.white,
             fontSize: 30,
